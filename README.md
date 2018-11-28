@@ -1,6 +1,6 @@
 # Twitter Clone
 
-A simple Twitter Clone using Node/Express/Mongo & Vue JS.
+A simple Twitter Clone using Node/Express/Mongo & Vue JS (Bootstrap 4).
 
 ## Authentication
 * [x] Create Server
