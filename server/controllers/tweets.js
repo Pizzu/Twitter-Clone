@@ -1,6 +1,6 @@
 const Tweet = require('../models/tweet');
 const User = require('../models/user');
-const Joi = require('Joi');
+const Joi = require('joi');
 
 const tweetSchema = Joi.object().keys({
   tweetMessage: Joi.string().trim().required()

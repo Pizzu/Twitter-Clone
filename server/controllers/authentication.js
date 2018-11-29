@@ -1,4 +1,4 @@
-const Joi = require('Joi');
+const Joi = require('joi');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');

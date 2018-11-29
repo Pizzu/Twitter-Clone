@@ -14,7 +14,7 @@ const app = express();
 
 //Mongoose setup
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true,  useCreateIndex: true });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true,  useCreateIndex: true, replicaSet: 'ClusterTwitterClone-shard-0'});
 
 //Middlewares setup
 app.use(morgan('dev'));

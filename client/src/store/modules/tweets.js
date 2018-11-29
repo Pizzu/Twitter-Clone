@@ -1,5 +1,8 @@
 import store from '../store.js';
 import router from '../../router.js';
+
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/' : 'https://server-adhfwvvqhq.now.sh/';
+
 const state = {
   user: {},
   tweets: []
@@ -38,7 +41,7 @@ const actions = {
   async getAllTweets({ commit }) {
     const answer = store.dispatch('auth/getUserFromToken');
     if (answer) {
-      const result = await fetch('http://localhost:5000/api/v1/tweets', {
+      const result = await fetch(API_URL + 'api/v1/tweets', {
         method: 'GET',
         headers:{
           'Content-Type': 'application/json',
@@ -54,7 +57,7 @@ const actions = {
     }
   },
   async createTweet({ commit }, tweetMessage) {
-    const result = await fetch('http://localhost:5000/api/v1/tweets', {
+    const result = await fetch(API_URL + 'api/v1/tweets', {
         method: 'POST',
         headers:{
           'Content-Type': 'application/json',
@@ -72,7 +75,7 @@ const actions = {
   async getUserTweets({ commit }, username) {
     const answer = store.dispatch('auth/getUserFromToken');
     if (answer) {
-    const result = await fetch(`http://localhost:5000/api/v1/tweets/${username}`, {
+    const result = await fetch(`${API_URL}api/v1/tweets/${username}`, {
         method: 'GET',
         headers:{
           'Content-Type': 'application/json',

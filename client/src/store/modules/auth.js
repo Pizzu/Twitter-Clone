@@ -1,5 +1,7 @@
 import router from '../../router.js';
 
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/' : 'https://server-adhfwvvqhq.now.sh/';
+
 const state = {
   user: {},
   isLoggedIn: false,
@@ -34,7 +36,7 @@ const  mutations ={
 
 const actions ={
   async signup({ commit, dispatch}, user) {
-    const result = await fetch('http://localhost:5000/auth/signup', {
+    const result = await fetch(API_URL + 'auth/signup', {
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(user)
@@ -49,7 +51,7 @@ const actions ={
     }
   },
   async login({ commit, dispatch }, user) {
-    const result = await fetch('http://localhost:5000/auth/login', {
+    const result = await fetch(API_URL + 'auth/login', {
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(user)
@@ -64,7 +66,7 @@ const actions ={
     }
   },
   async getUserFromToken({ commit,  dispatch}) {
-    const result = await fetch('http://localhost:5000/api/v1', {
+    const result = await fetch(API_URL + 'api/v1', {
       method: 'GET',
       headers:{
         'Content-Type': 'application/json',
