@@ -20,7 +20,7 @@
           <div class="card shadow">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
-                <router-link :to="{name: 'userProfile', params: {username: tweet.author.username}}" tag="h3" class="card-title text-primary">
+                <router-link :to="{name: 'userProfile', params: {username: tweet.author.username}}" tag="h3" class="card-title text-primary profilePointer">
                   {{ tweet.author.username }}
                 </router-link>
                 <p>{{ getTweetDate(tweet.createdAt) }}</p>
@@ -80,4 +80,10 @@ export default {
     height: 100px;
     width: 100px;
   }
+
+  .profilePointer {
+    cursor: pointer;
+  }
+
+
 </style>
